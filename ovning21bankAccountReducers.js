@@ -5,20 +5,20 @@ function reducer(state, action) {
   switch( action.type ) {
     case WITHDRAW:
       return {
-              balance: state.balance- WITHDRAW.amount
+              balance: state.balance- action.amount
             };
         case DEPOSIT:
             return {
-              balance: state.balance + WITHDRAW.amount
+              balance: state.balance + action.amount
             };
         case TRANSFERFUNDS:
             return {
               destinationAccount: TRANSFERFUNDS.destinationAccount,
-              balance: state.balance- WITHDRAW.amount
+              balance: state.balance- action.amount
             };
         case CLOSINGACCOUNT:
             return {
-              openAccount:false;
+              openAccount:action.openAccount;
             }
         default:
           return Object.assign({},state);
